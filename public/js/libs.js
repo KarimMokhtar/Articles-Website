@@ -2440,9 +2440,7 @@ if (typeof jQuery === 'undefined') {
     };
 
 })(jQuery, window, document);
-/**
- * Created by edwin on 11/7/15.
- */
+
 
 $(document).ready(function(){
 

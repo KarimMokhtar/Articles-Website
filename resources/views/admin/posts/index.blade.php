@@ -15,6 +15,7 @@
 				<th>Category</th>
 				<th>Title</th>
 				<th>Status</th>
+				<th colspan = '2'>View</th>
 				<th>created</th>
 				<th>updated</th>
 			</tr>
@@ -29,7 +30,9 @@
 						<td><a href="{{route('posts.edit',$post->id)}}">{{$post->user->name}}</a></td>
 						<td>{{$post->category ? $post->category->name : 'uncategorized'}}</td>
 						<th>{{$post->title}}</th>
-						<td>{{$post->body}}</td>
+						<td>{{str_limit($post->body,30)}}</td>
+						<td><a href="{{route('home.post',$post->id)}}">View Post</a></td>
+						<td><a href="{{route('comments.show',$post->id)}}">View Comments</a></td>
 						<td>{{$post->created_at->diffForHumans()}}</td>
 						<td>{{$post->updated_at->diffForHumans()}}</td>
 					</tr>
@@ -37,4 +40,10 @@
 			@endif
 		</tbody>
 	</table>
+
+	<div class='row'>
+		<div class='col-sm-6 col-sm-offset-5'>
+			{{$posts->render()}}
+		</div>
+	</div>
 @stop

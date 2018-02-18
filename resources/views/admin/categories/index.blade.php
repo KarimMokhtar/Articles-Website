@@ -5,9 +5,10 @@
 @section('content')
 
 
-	<h1>Categories</h1>
+	
 
 	<div class = 'col-sm-6'> 
+		<h1>Categories</h1>
 		{!! Form::open(['method'=>'POST','action'=>'AdminCategoriesController@store']) !!}
 
 			<div class='form-group'>

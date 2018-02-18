@@ -3,8 +3,7 @@
 
 
 @section('content')
-	<h1>Create Posts</h1>
-	<div class = 'row'>
+		<h1>Create Posts</h1>
 		{!! Form::open(['method' => 'POST', 'action' => 'AdminPostsController@store','files'=>true]) !!}
 		<div class = "form-group">
 			{!! Form::label('title', 'Title:') !!}
@@ -28,8 +27,5 @@
 		</div>
 		{!! Form::close() !!}
 	</div>
-
-	<div class = 'row'>
 		@include('includes.form_error')
-	</div>
 @stop

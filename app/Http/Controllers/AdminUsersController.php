@@ -6,6 +6,7 @@ use App\User;
 use App\Role;
 use App\Photo;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UsersEditRequest;
 use Illuminate\Support\Facades\Session;
 class AdminUsersController extends Controller
 {
@@ -46,8 +47,9 @@ class AdminUsersController extends Controller
             $input = $request->except('password');
         }
         else{
-            $request['password'] = bcrypt($request['password']);
             $input = $request->all();
+            $input['password'] = bcrypt($input['password']);
+            
         }
 
         /*$request['password'] = bcrypt($request['password']);
@@ -99,17 +101,17 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, $id)
+    public function update(UsersEditRequest $request, $id)
     {
         //
         $user = User::findOrFail($id);
-
         if(trim($request->password) == ''){
             $input = $request->except('password');
         }
         else{
-            $request['password'] = bcrypt($request['password']);
             $input = $request->all();
+            $input['password'] = bcrypt($input['password']);
+           
         }
         
         /*$request['password'] = bcrypt($request['password']);
